@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ArcadeHub — Game Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0e1a;
+  --panel: #14182e;
+  --accent: #6cf2c2;
+  --accent2: #5b7cfa;
+  --text: #eef0ff;
+  --muted: #9aa0c3;
+}
+* { box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 20% -10%, #1a1f3d, transparent), var(--bg);
+  color: var(--text);
+}
+header {
+  display: flex;
+  justify-content: center;
+  padding: 28px 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.logo { font-weight: 700; font-size: 1.6rem; letter-spacing: 0.5px; }
+.logo span { color: var(--accent); }
+main {
+  padding: 40px; max-width: 1200px; margin: auto;
+}
+h1 { font-size: 2.4rem; text-align: center; margin-bottom: 10px; }
+.grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 22px;
+}
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), transparent), var(--panel);
+  border-radius: 20px; cursor: pointer; overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.45); }
+.card img { width: 100%; height: 280px; object-fit: cover; border-radius: 16px; }
+.card-info h3 {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+footer {
+  text-align: center; padding: 30px; color: var(--muted); font-size: 0.9rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease forwards;
+}
+.modal-content {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 800px;
+  width: 90%;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  animation: scaleUp 0.3s ease forwards;
+}
+.modal-content img {
+  width: 45%;
+  border-radius: 16px;
+}
+.modal-content h2 {
+  font-size: 2rem; color: var(--accent); margin: 0;
+  flex: 1;
+}
+.close {
+  position: absolute; top: 10px; right: 18px;
+  font-size: 2rem; color: var(--accent2); cursor: pointer;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+@keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; }}
+</style>
+</head>
+<body>
+
+<header><div class="logo">Tamzid<span>'s</span> Game Library</div></header>
+
+<main>
+  <section class="grid" id="home">
+
+    <div class="card" onclick="openModal('Hogwarts Legacy', 'img15.jpg')">
+      <img src="img15.jpg" alt="Hogwarts Legacy">
+      <div class="card-info"><h3>Hogwarts Legacy</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Detroit: Become Human', 'img1.jpg')">
+        <img src="img1.jpg" alt="Detroit: Become Human">
+        <div class="card-info"><h3>Detroit: Become Human</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('The Callisto Protocol', 'img3.jpg')">
+        <img src="img3.jpg" alt="The Callisto Protocol">
+        <div class="card-info"><h3>The Callisto Protocol</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Disco Elysium - The Final Cut', 'img14.jpg')">
+      <img src="img14.jpg" alt="Disco Elysium">
+      <div class="card-info"><h3>Disco Elysium - The Final Cut</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('We Were Here Together', 'img4.jpg')">
+        <img src="img4.jpg" alt="We Were Here Together">
+        <div class="card-info"><h3>We Were Here Together</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Viewfinder', 'img9.jpg')">
+        <img src="img9.jpg" alt="Viewfinder">
+        <div class="card-info"><h3>Viewfinder</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Bloodstained: Ritual of the Night', 'img2.jpg')">
+      <img src="img2.jpg" alt="Bloodstained: Ritual of the Night">
+      <div class="card-info"><h3>Bloodstained: Ritual of the Night</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Idle Champions of the Forgotten Realm', 'img5.jpg')">
+      <img src="img5.jpg" alt="Idle Champions">
+      <div class="card-info"><h3>Idle Champions of the Forgotten Realm</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Eternights', 'img6.jpg')">
+      <img src="img6.jpg" alt="Eternights">
+      <div class="card-info"><h3>Eternights</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Paradise Killer', 'img7.jpg')">
+      <img src="img7.jpg" alt="Paradise Killer">
+      <div class="card-info"><h3>Paradise Killer</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Cassette Beasts', 'img8.jpg')">
+      <img src="img8.jpg" alt="Cassette Beasts">
+      <div class="card-info"><h3>Cassette Beasts</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('SKALD: Against the Black Priory', 'img10.jpg')">
+      <img src="img10.jpg" alt="SKALD">
+      <div class="card-info"><h3>SKALD: Against the Black Priory</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Jotunnslayer: Hordes of Hel', 'img11.jpg')">
+      <img src="img11.jpg" alt="Jotunnslayer">
+      <div class="card-info"><h3>Jotunnslayer: Hordes of Hel</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Blood West', 'img12.jpg')">
+      <img src="img12.jpg" alt="Blood West">
+      <div class="card-info"><h3>Blood West</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Sorry We’re Closed', 'img13.jpg')">
+      <img src="img13.jpg" alt="Sorry We're Closed">
+      <div class="card-info"><h3>Sorry We’re Closed</h3></div>
+    </div>
+
+  </section>
+</main>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="" alt="Game cover">
+    <h2 id="modal-title"></h2>
+  </div>
+</div>
+
+<footer>© 2026 Tamzid Alahi.</footer>
+
+<script>
+function openModal(title, img) {
+  document.getElementById('modal-title').innerText = title;
+  document.getElementById('modal-img').src = img;
+  document.getElementById('modal').style.display = 'flex';
+}
+function closeModal() { document.getElementById('modal').style.display = 'none'; }
+window.onclick = e => { if (e.target === document.getElementById('modal')) closeModal(); }
+</script>
+
+</body>
+</html>
