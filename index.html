@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>My Game List</title>
+<title>My Game Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -119,6 +119,21 @@ footer {
         <div class="card-info"><h3>The Callisto Protocol</h3></div>
     </div>
 
+    <div class="card" onclick="openModal('Beyond: Two Souls', 'img19.jpg')">
+        <img src="img19.jpg" alt="Beyond: Two Souls">
+        <div class="card-info"><h3>Beyond: Two Souls</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Heavy Rain', 'img18.jpg')">
+        <img src="img18.jpg" alt="Heavy Rain">
+        <div class="card-info"><h3>Heavy Rain</h3></div>
+    </div>
+
+    <div class="card" onclick="openModal('Syberia: The World Before', 'img20.jpg')">
+        <img src="img20.jpg" alt="Syberia: The World Before">
+        <div class="card-info"><h3>Syberia: The World Before</h3></div>
+    </div>
+
     <div class="card" onclick="openModal('Disco Elysium - The Final Cut', 'img14.jpg')">
       <img src="img14.jpg" alt="Disco Elysium">
       <div class="card-info"><h3>Disco Elysium - The Final Cut</h3></div>
@@ -215,4 +230,3 @@ window.onclick = e => { if (e.target === document.getElementById('modal')) close
 
 </body>
 </html>
-
